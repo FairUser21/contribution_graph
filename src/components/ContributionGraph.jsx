@@ -5,12 +5,13 @@ import axios from "axios";
 import ContributionWeek from "./ContributionWeek";
 import ContributionLevels from "./ContributionLevels";
 
+const days = getDates();
+const months = getMonths();
+
 const ContributionGraph = () => {
   const [selectedDay, setSelectedDay] = useState(null);
   const [contributions, setContributions] = useState({});
 
-  const days = getDates();
-  const months = getMonths();
   const API = "https://dpg.gg/test/calendar.json";
 
   const getContributionsData = async () => {

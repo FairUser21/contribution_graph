@@ -3,14 +3,15 @@ import "dayjs/locale/ru";
 
 export const getDates = () => {
   const dates = dayjs().locale("ru");
-  const end = dates.endOf("day");
-  const start = end.subtract(1, "year");
+  const end = dates.endOf("week");
+  const start = end.subtract(357, "day");
 
   const days = [];
 
-  for (let i = 8; i < 365; i++) {
+  for (let i = 8; i < 358; i++) {
     days.push(start.add(i, "day"));
   }
+  console.log(days);
 
   return days;
 };

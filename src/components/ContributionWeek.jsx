@@ -1,18 +1,21 @@
 const ContributionWeek = ({ week }) => {
   const showWeek = (n) => {
-    return n === 0 || n === 2 || n === 3;
+    console.log(n);
+    return n === 0 || n === 2 || n === 4;
   };
 
   return (
-    <div className="week">
+    <>
       {week.map((day, index) =>
         showWeek(index) ? (
           <span className="table-head-text" key={index}>
             {day.format("dd")}
           </span>
-        ) : null
+        ) : (
+          <span key={index}></span>
+        )
       )}
-    </div>
+    </>
   );
 };
 
