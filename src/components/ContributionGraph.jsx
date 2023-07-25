@@ -35,7 +35,11 @@ const ContributionGraph = () => {
       </div>
       <div className="table-body">
         {days.slice(0, 7).map((day, index) => (
-          <p className="table-head-text" key={index}>
+          <p
+            className="table-head-text"
+            key={index}
+            style={{ marginRight: "20px" }}
+          >
             {day.format("dd")}
           </p>
         ))}

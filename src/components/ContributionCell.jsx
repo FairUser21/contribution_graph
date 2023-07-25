@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const ContributionCell = ({
   day,
   selectedDay,
@@ -5,6 +7,18 @@ const ContributionCell = ({
   contributions,
 }) => {
   const formattedDay = day.format("YYYY-MM-DD");
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleMouseEnter = () => {
+    setSelectedDay(day);
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setSelectedDay(null);
+    setIsOpen(false);
+  };
 
   const getBgColor = () => {
     if (contributions[formattedDay] < 10) {
@@ -23,8 +37,22 @@ const ContributionCell = ({
   return (
     <div
       className={`cell ${getBgColor()}`}
-      onClick={() => setSelectedDay(day)}
-    ></div>
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {isOpen && (
+        <div className="menu-items">
+          {contributions[formattedDay] ? (
+            <p className="main-text">
+              {contributions[formattedDay]} contributions in{" "}
+            </p>
+          ) : (
+            <p className="main-text">No contributions on</p>
+          )}
+          <p className="secondary-text">{day.format("dddd, MMMM D, YYYY")}</p>
+        </div>
+      )}
+    </div>
   );
 };
 
