@@ -1,9 +1,9 @@
 import dayjs from "dayjs";
 import "dayjs/locale/ru";
 
-export function getDates() {
+export const getDates = () => {
   const dates = dayjs().locale("ru");
-  const end = dates.endOf("month");
+  const end = dates.endOf("day");
   const start = end.subtract(1, "year");
 
   const days = [];
@@ -11,5 +11,31 @@ export function getDates() {
   for (let i = 0; i < 365; i++) {
     days.push(start.add(i, "day"));
   }
+
   return days;
-}
+};
+
+export const getWeeks = () => {
+  const dates = dayjs().locale("ru");
+  const end = dates.endOf("day");
+  const start = end.subtract(1, "year");
+
+  const weeks = [];
+
+  for (let i = 0; i < 53; i++) {
+    weeks.push(start.add(i, "week"));
+  }
+};
+
+export const getMonths = () => {
+  const dates = dayjs().locale("ru");
+  const start = dates.subtract(11, "month");
+  const months = [];
+
+  for (let i = 0; i < 12; i++) {
+    const currentMonth = start.add(i, "month");
+    months.push(currentMonth.format("MMM"));
+  }
+  console.log(months);
+  return months;
+};

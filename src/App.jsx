@@ -1,12 +1,13 @@
-import { getDates } from "./lib/date";
+import ContributionGraph from "./components/ContributionGraph";
+
+import "./styles/variables.css";
+import "./styles/index.css";
 
 function App() {
-  getDates();
-
   return (
-    <>
-      <h1>hello world</h1>
-    </>
+    <div className="app">
+      <ContributionGraph />
+    </div>
   );
 }
 
