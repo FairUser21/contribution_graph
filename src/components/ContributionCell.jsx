@@ -1,22 +1,15 @@
 import { useState } from "react";
 
-const ContributionCell = ({
-  day,
-  selectedDay,
-  setSelectedDay,
-  contributions,
-}) => {
+const ContributionCell = ({ day, contributions }) => {
   const formattedDay = day.format("YYYY-MM-DD");
 
   const [isOpen, setIsOpen] = useState(false);
 
   const handleMouseEnter = () => {
-    setSelectedDay(day);
     setIsOpen(true);
   };
 
   const handleMouseLeave = () => {
-    setSelectedDay(null);
     setIsOpen(false);
   };
 

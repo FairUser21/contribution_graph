@@ -9,7 +9,6 @@ const days = getDates();
 const months = getMonths();
 
 const ContributionGraph = () => {
-  const [selectedDay, setSelectedDay] = useState(null);
   const [contributions, setContributions] = useState({});
 
   const API = "https://dpg.gg/test/calendar.json";
@@ -43,8 +42,6 @@ const ContributionGraph = () => {
             <ContributionCell
               key={index}
               day={day}
-              selectedDay={selectedDay}
-              setSelectedDay={setSelectedDay}
               contributions={contributions}
             />
           ))}
