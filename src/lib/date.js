@@ -33,9 +33,7 @@ export const getMonths = () => {
   const months = [];
 
   for (let i = 0; i < 12; i++) {
-    const currentMonth = start.add(i, "month");
-    months.push(currentMonth.format("MMM"));
+    months.push(start.add(i, "month"));
   }
-  console.log(months);
   return months;
 };
