@@ -45,6 +45,7 @@ const ContributionGraph = () => {
             day={day}
             selectedDay={selectedDay}
             setSelectedDay={setSelectedDay}
+            contributions={contributions}
           />
         ))}
       </div>
